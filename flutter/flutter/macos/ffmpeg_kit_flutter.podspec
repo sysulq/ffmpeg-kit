@@ -15,7 +15,11 @@ Pod::Spec.new do |s|
   s.source_files        = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
 
-  s.default_subspec     = 'https'
+  s.default_subspec     = 'ffmpeg_kit_macos_local'
+
+  s.subspec 'ffmpeg_kit_macos_local' do |ss|
+    ss.vendored_frameworks = 'Frameworks/ffmpeg-kit-macos-https/ffmpegkit.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libavdevice.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libavcodec.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libavfilter.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libavformat.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libavutil.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libswresample.xcframework', 'Frameworks/ffmpeg-kit-macos-https/libswscale.xcframework'
+  end
 
   s.dependency          'FlutterMacOS'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
